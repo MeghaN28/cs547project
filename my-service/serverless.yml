@@ -1,0 +1,66 @@
+service: my-serverless-project
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-west-2
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+        - kms:*
+        - lambda:InvokeFunction
+      Resource: "*"
+
+functions:
+  getUser:
+    handler: handlers/userHandler.getUser
+    events:
+      - http:
+          path: users/{email}
+          method: get
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: arn:aws:cognito-idp:us-west-2:058264448474:userpool/us-west-2_Oj7y6SH7i
+
+  createUser:
+    handler: handlers/userHandler.createUser
+    events:
+      - http:
+          path: users
+          method: post
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: arn:aws:cognito-idp:us-west-2:058264448474:userpool/us-west-2_Oj7y6SH7i
+
+resources:
+  Resources:
+    UserTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: UserTable
+        AttributeDefinitions:
+          - AttributeName: email
+            AttributeType: S
+        KeySchema:
+          - AttributeName: email
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+
+    KMSKey:
+      Type: AWS::KMS::Key
+      Properties:
+        Description: Key for encrypting user data
+        EnableKeyRotation: true
+
+plugins:
+  - serverless-offline
+
+custom:
+  cognito:
+    userPoolId: us-west-2_Oj7y6SH7i
+    userPoolClientId: 3rfbr87opqhtliffcucjjcid3o
