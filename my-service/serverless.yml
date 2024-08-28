@@ -22,7 +22,7 @@ functions:
           cors: true
           authorizer:
             type: COGNITO_USER_POOLS
-            arn: arn:aws:cognito-idp:us-west-2:058264448474:userpool/us-west-2_Oj7y6SH7i
+            arn: abc
 
   createUser:
     handler: handlers/userHandler.createUser
@@ -33,7 +33,7 @@ functions:
           cors: true
           authorizer:
             type: COGNITO_USER_POOLS
-            arn: arn:aws:cognito-idp:us-west-2:058264448474:userpool/us-west-2_Oj7y6SH7i
+            arn: abc
 
 resources:
   Resources:
@@ -62,5 +62,5 @@ plugins:
 
 custom:
   cognito:
-    userPoolId: us-west-2_Oj7y6SH7i
-    userPoolClientId: 3rfbr87opqhtliffcucjjcid3o
+    userPoolId: abc
+    userPoolClientId: avbc
