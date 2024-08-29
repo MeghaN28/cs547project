@@ -16,7 +16,7 @@
       "provider": {
         "name": "aws",
         "runtime": "nodejs20.x",
-        "region": "us-west-2",
+        "region": "ap-south-1",
         "iamRoleStatements": [
           {
             "Effect": "Allow",
@@ -209,7 +209,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/my-serverless-project/dev/1724875443105-2024-08-28T20:04:03.105Z/my-serverless-project.zip"
+                  "S3Key": "serverless/my-serverless-project/dev/1724969294643-2024-08-29T22:08:14.643Z/my-serverless-project.zip"
                 },
                 "Handler": "handlers/userHandler.getUser",
                 "Runtime": "nodejs20.x",
@@ -234,7 +234,7 @@
                   "S3Bucket": {
                     "Ref": "ServerlessDeploymentBucket"
                   },
-                  "S3Key": "serverless/my-serverless-project/dev/1724875443105-2024-08-28T20:04:03.105Z/my-serverless-project.zip"
+                  "S3Key": "serverless/my-serverless-project/dev/1724969294643-2024-08-29T22:08:14.643Z/my-serverless-project.zip"
                 },
                 "Handler": "handlers/userHandler.createUser",
                 "Runtime": "nodejs20.x",
@@ -252,24 +252,24 @@
                 "CreateUserLogGroup"
               ]
             },
-            "GetUserLambdaVersiongYoK8XkzKXRWgEi8UKhKPCH1j5qlIvoWXILAoE11k": {
+            "GetUserLambdaVersionW9kEMu984XO88YhfKZLZbxWEqDli7AzHUXxKCJZPo": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetUserLambdaFunction"
                 },
-                "CodeSha256": "j2rZ01tQZY4i4nrBOlfzTaK7Ri7d3wZHLQv10VdS1dY="
+                "CodeSha256": "Vgr+vNSxAUmeA5WElJckyFcR26oxpXnAAR1OsHigIZg="
               }
             },
-            "CreateUserLambdaVersionsGQeXaEDjpIYFBUZBGhGrimb6ZwxdZKP3K32oXdsFwg": {
+            "CreateUserLambdaVersionZ54wyL9W5L5y2oS3hrkda22PgEShpgLIClbZO8cCM": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "CreateUserLambdaFunction"
                 },
-                "CodeSha256": "j2rZ01tQZY4i4nrBOlfzTaK7Ri7d3wZHLQv10VdS1dY="
+                "CodeSha256": "Vgr+vNSxAUmeA5WElJckyFcR26oxpXnAAR1OsHigIZg="
               }
             },
             "ApiGatewayRestApi": {
@@ -339,7 +339,7 @@
                       "StatusCode": "200",
                       "ResponseParameters": {
                         "method.response.header.Access-Control-Allow-Origin": "'*'",
-                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Requested-With'",
                         "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
                       },
                       "ResponseTemplates": {
@@ -384,7 +384,7 @@
                       "StatusCode": "200",
                       "ResponseParameters": {
                         "method.response.header.Access-Control-Allow-Origin": "'*'",
-                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Requested-With'",
                         "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                       },
                       "ResponseTemplates": {
@@ -415,7 +415,7 @@
                 "ApiKeyRequired": "<REDACTED>",
                 "AuthorizationType": "COGNITO_USER_POOLS",
                 "AuthorizerId": {
-                  "Ref": "2UnderscoreOj7y6SH7iApiGatewayAuthorizer"
+                  "Ref": "1Underscore4YebdRlsQApiGatewayAuthorizer"
                 },
                 "Integration": {
                   "IntegrationHttpMethod": "POST",
@@ -447,7 +447,7 @@
                 "MethodResponses": []
               },
               "DependsOn": [
-                "2UnderscoreOj7y6SH7iApiGatewayAuthorizer"
+                "1Underscore4YebdRlsQApiGatewayAuthorizer"
               ]
             },
             "ApiGatewayMethodUsersPost": {
@@ -464,7 +464,7 @@
                 "ApiKeyRequired": "<REDACTED>",
                 "AuthorizationType": "COGNITO_USER_POOLS",
                 "AuthorizerId": {
-                  "Ref": "2UnderscoreOj7y6SH7iApiGatewayAuthorizer"
+                  "Ref": "1Underscore4YebdRlsQApiGatewayAuthorizer"
                 },
                 "Integration": {
                   "IntegrationHttpMethod": "POST",
@@ -496,25 +496,25 @@
                 "MethodResponses": []
               },
               "DependsOn": [
-                "2UnderscoreOj7y6SH7iApiGatewayAuthorizer"
+                "1Underscore4YebdRlsQApiGatewayAuthorizer"
               ]
             },
-            "2UnderscoreOj7y6SH7iApiGatewayAuthorizer": {
+            "1Underscore4YebdRlsQApiGatewayAuthorizer": {
               "Type": "AWS::ApiGateway::Authorizer",
               "Properties": {
                 "AuthorizerResultTtlInSeconds": 300,
                 "IdentitySource": "method.request.header.Authorization",
-                "Name": "2_Oj7y6SH7i",
+                "Name": "1_4YebdRlsQ",
                 "RestApiId": {
                   "Ref": "ApiGatewayRestApi"
                 },
                 "Type": "COGNITO_USER_POOLS",
                 "ProviderARNs": [
-                  "arn:aws:cognito-idp:us-west-2:058264448474:userpool/us-west-2_Oj7y6SH7i"
+                  "arn:aws:cognito-idp:ap-south-1:058264448474:userpool/ap-south-1_4YebdRlsQ"
                 ]
               }
             },
-            "ApiGatewayDeployment1724875417875": {
+            "ApiGatewayDeployment1724969276733": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -645,7 +645,7 @@
             "GetUserLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetUserLambdaVersiongYoK8XkzKXRWgEi8UKhKPCH1j5qlIvoWXILAoE11k"
+                "Ref": "GetUserLambdaVersionW9kEMu984XO88YhfKZLZbxWEqDli7AzHUXxKCJZPo"
               },
               "Export": {
                 "Name": "sls-my-serverless-project-dev-GetUserLambdaFunctionQualifiedArn"
@@ -654,7 +654,7 @@
             "CreateUserLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "CreateUserLambdaVersionsGQeXaEDjpIYFBUZBGhGrimb6ZwxdZKP3K32oXdsFwg"
+                "Ref": "CreateUserLambdaVersionZ54wyL9W5L5y2oS3hrkda22PgEShpgLIClbZO8cCM"
               },
               "Export": {
                 "Name": "sls-my-serverless-project-dev-CreateUserLambdaFunctionQualifiedArn"
@@ -788,19 +788,15 @@
                   ],
                   "headers": [
                     "Content-Type",
-                    "X-Amz-Date",
                     "Authorization",
-                    "X-Api-Key",
-                    "X-Amz-Security-Token",
-                    "X-Amz-User-Agent",
-                    "X-Amzn-Trace-Id"
+                    "X-Requested-With"
                   ],
                   "allowCredentials": "<REDACTED>"
                 },
                 "authorizer": {
                   "type": "COGNITO_USER_POOLS",
-                  "name": "2_Oj7y6SH7i",
-                  "arn": "arn:aws:cognito-idp:us-west-2:058264448474:userpool/us-west-2_Oj7y6SH7i",
+                  "name": "1_4YebdRlsQ",
+                  "arn": "arn:aws:cognito-idp:ap-south-1:058264448474:userpool/ap-south-1_4YebdRlsQ",
                   "managedExternally": false,
                   "resultTtlInSeconds": 300,
                   "identitySource": "method.request.header.Authorization",
@@ -816,7 +812,7 @@
           "timeout": 6,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "GetUserLambdaVersiongYoK8XkzKXRWgEi8UKhKPCH1j5qlIvoWXILAoE11k"
+          "versionLogicalId": "GetUserLambdaVersionW9kEMu984XO88YhfKZLZbxWEqDli7AzHUXxKCJZPo"
         },
         "createUser": {
           "handler": "handlers/userHandler.createUser",
@@ -833,19 +829,15 @@
                   ],
                   "headers": [
                     "Content-Type",
-                    "X-Amz-Date",
                     "Authorization",
-                    "X-Api-Key",
-                    "X-Amz-Security-Token",
-                    "X-Amz-User-Agent",
-                    "X-Amzn-Trace-Id"
+                    "X-Requested-With"
                   ],
                   "allowCredentials": "<REDACTED>"
                 },
                 "authorizer": {
                   "type": "COGNITO_USER_POOLS",
-                  "name": "2_Oj7y6SH7i",
-                  "arn": "arn:aws:cognito-idp:us-west-2:058264448474:userpool/us-west-2_Oj7y6SH7i",
+                  "name": "1_4YebdRlsQ",
+                  "arn": "arn:aws:cognito-idp:ap-south-1:058264448474:userpool/ap-south-1_4YebdRlsQ",
                   "managedExternally": false,
                   "resultTtlInSeconds": 300,
                   "identitySource": "method.request.header.Authorization",
@@ -861,7 +853,7 @@
           "timeout": 6,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "CreateUserLambdaVersionsGQeXaEDjpIYFBUZBGhGrimb6ZwxdZKP3K32oXdsFwg"
+          "versionLogicalId": "CreateUserLambdaVersionZ54wyL9W5L5y2oS3hrkda22PgEShpgLIClbZO8cCM"
         }
       },
       "resources": {
@@ -900,15 +892,9 @@
       },
       "plugins": [
         "serverless-offline"
-      ],
-      "custom": {
-        "cognito": {
-          "userPoolId": "us-west-2_Oj7y6SH7i",
-          "userPoolClientId": "3rfbr87opqhtliffcucjjcid3o"
-        }
-      }
+      ]
     },
-    "serviceRawFile": "service: my-serverless-project\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs20.x\r\n  region: us-west-2\r\n  iamRoleStatements:\r\n    - Effect: Allow\r\n      Action:\r\n        - dynamodb:*\r\n        - kms:*\r\n        - lambda:InvokeFunction\r\n      Resource: \"*\"\r\n\r\nfunctions:\r\n  getUser:\r\n    handler: handlers/userHandler.getUser\r\n    events:\r\n      - http:\r\n          path: users/{email}\r\n          method: get\r\n          cors: true\r\n          authorizer:\r\n            type: COGNITO_USER_POOLS\r\n            arn: arn:aws:cognito-idp:us-west-2:058264448474:userpool/us-west-2_Oj7y6SH7i\r\n\r\n  createUser:\r\n    handler: handlers/userHandler.createUser\r\n    events:\r\n      - http:\r\n          path: users\r\n          method: post\r\n          cors: true\r\n          authorizer:\r\n            type: COGNITO_USER_POOLS\r\n            arn: arn:aws:cognito-idp:us-west-2:058264448474:userpool/us-west-2_Oj7y6SH7i\r\n\r\nresources:\r\n  Resources:\r\n    UserTable:\r\n      Type: AWS::DynamoDB::Table\r\n      Properties:\r\n        TableName: UserTable\r\n        AttributeDefinitions:\r\n          - AttributeName: email\r\n            AttributeType: S\r\n        KeySchema:\r\n          - AttributeName: email\r\n            KeyType: HASH\r\n        ProvisionedThroughput:\r\n          ReadCapacityUnits: 5\r\n          WriteCapacityUnits: 5\r\n\r\n    KMSKey:\r\n      Type: AWS::KMS::Key\r\n      Properties:\r\n        Description: Key for encrypting user data\r\n        EnableKeyRotation: true\r\n\r\nplugins:\r\n  - serverless-offline\r\n\r\ncustom:\r\n  cognito:\r\n    userPoolId: us-west-2_Oj7y6SH7i\r\n    userPoolClientId: 3rfbr87opqhtliffcucjjcid3o\r\n",
+    "serviceRawFile": "service: my-serverless-project\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs20.x\r\n  region: ap-south-1\r\n  iamRoleStatements:\r\n    - Effect: Allow\r\n      Action:\r\n        - dynamodb:*\r\n        - kms:*\r\n        - lambda:InvokeFunction\r\n      Resource: \"*\"\r\n\r\nfunctions:\r\n  getUser:\r\n    handler: handlers/userHandler.getUser\r\n    events:\r\n      - http:\r\n          path: users/{email}\r\n          method: get\r\n          cors:\r\n            origin: '*'\r\n            headers:\r\n              - Content-Type\r\n              - Authorization\r\n              - X-Requested-With\r\n          authorizer:\r\n            type: COGNITO_USER_POOLS\r\n            arn: arn:aws:cognito-idp:ap-south-1:058264448474:userpool/ap-south-1_4YebdRlsQ\r\n\r\n  createUser:\r\n    handler: handlers/userHandler.createUser\r\n    events:\r\n      - http:\r\n          path: users\r\n          method: post\r\n          cors:\r\n            origin: '*'\r\n            headers:\r\n              - Content-Type\r\n              - Authorization\r\n              - X-Requested-With\r\n          authorizer:\r\n            type: COGNITO_USER_POOLS\r\n            arn: arn:aws:cognito-idp:ap-south-1:058264448474:userpool/ap-south-1_4YebdRlsQ\r\n\r\nresources:\r\n  Resources:\r\n    UserTable:\r\n      Type: AWS::DynamoDB::Table\r\n      Properties:\r\n        TableName: UserTable\r\n        AttributeDefinitions:\r\n          - AttributeName: email\r\n            AttributeType: S\r\n        KeySchema:\r\n          - AttributeName: email\r\n            KeyType: HASH\r\n        ProvisionedThroughput:\r\n          ReadCapacityUnits: 5\r\n          WriteCapacityUnits: 5\r\n\r\n    KMSKey:\r\n      Type: AWS::KMS::Key\r\n      Properties:\r\n        Description: Key for encrypting user data\r\n        EnableKeyRotation: true\r\n\r\nplugins:\r\n  - serverless-offline\r\n",
     "command": [
       "deploy"
     ],
@@ -939,32 +925,32 @@
     "versionSf": "4.2.4",
     "serviceProviderAwsCfStackName": "my-serverless-project-dev",
     "integrations": {},
-    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-west-2:058264448474:stack/my-serverless-project-dev/8f347d20-64fd-11ef-8d33-06b888091933",
-    "serviceProviderAwsCfStackCreated": "2024-08-28T05:22:46.435Z",
-    "serviceProviderAwsCfStackUpdated": "2024-08-28T20:04:55.202Z",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:ap-south-1:058264448474:stack/my-serverless-project-dev/94e7d560-6646-11ef-b1c6-06d2e9819a1b",
+    "serviceProviderAwsCfStackCreated": "2024-08-29T20:38:00.427Z",
+    "serviceProviderAwsCfStackUpdated": "2024-08-29T22:09:31.878Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "GetUserLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-west-2:058264448474:function:my-serverless-project-dev-getUser:10",
+        "OutputValue": "arn:aws:lambda:ap-south-1:058264448474:function:my-serverless-project-dev-getUser:5",
         "Description": "Current Lambda function version",
         "ExportName": "sls-my-serverless-project-dev-GetUserLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "CreateUserLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-west-2:058264448474:function:my-serverless-project-dev-createUser:10",
+        "OutputValue": "arn:aws:lambda:ap-south-1:058264448474:function:my-serverless-project-dev-createUser:5",
         "Description": "Current Lambda function version",
         "ExportName": "sls-my-serverless-project-dev-CreateUserLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ServiceEndpoint",
-        "OutputValue": "https://dzafh0dei1.execute-api.us-west-2.amazonaws.com/dev",
+        "OutputValue": "https://exy3k510hb.execute-api.ap-south-1.amazonaws.com/dev",
         "Description": "URL of the service endpoint",
         "ExportName": "sls-my-serverless-project-dev-ServiceEndpoint"
       },
       {
         "OutputKey": "ServerlessDeploymentBucketName",
-        "OutputValue": "my-serverless-project-dev-serverlessdeploymentbuck-txchdczdbtht",
+        "OutputValue": "my-serverless-project-dev-serverlessdeploymentbuck-pxc4eme5il8u",
         "ExportName": "sls-my-serverless-project-dev-ServerlessDeploymentBucketName"
       }
     ]

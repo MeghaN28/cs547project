@@ -3,7 +3,7 @@ service: my-serverless-project
 provider:
   name: aws
   runtime: nodejs20.x
-  region: us-west-2
+  region: ap-south-1
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -19,10 +19,15 @@ functions:
       - http:
           path: users/{email}
           method: get
-          cors: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Requested-With
           authorizer:
             type: COGNITO_USER_POOLS
-            arn: abc
+            arn: arn:aws:cognito-idp:ap-south-1:058264448474:userpool/ap-south-1_4YebdRlsQ
 
   createUser:
     handler: handlers/userHandler.createUser
@@ -30,10 +35,15 @@ functions:
       - http:
           path: users
           method: post
-          cors: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Requested-With
           authorizer:
             type: COGNITO_USER_POOLS
-            arn: abc
+            arn: arn:aws:cognito-idp:ap-south-1:058264448474:userpool/ap-south-1_4YebdRlsQ
 
 resources:
   Resources:
@@ -59,8 +69,3 @@ resources:
 
 plugins:
   - serverless-offline
-
-custom:
-  cognito:
-    userPoolId: abc
-    userPoolClientId: avbc

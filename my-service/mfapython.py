@@ -5,9 +5,9 @@ import boto3
 
 app = FastAPI()
 
-USER_POOL_ID = 'abc'
-CLIENT_ID = 'abc'
-client = boto3.client('cognito-idp', region_name='us-west-1')
+USER_POOL_ID = 'ap-south-1_ViDSMetKk'
+CLIENT_ID = '7aabashul8fq0lcmomls674krk'
+client = boto3.client('cognito-idp', region_name='ap-south-1')
 
 
 class User(BaseModel):

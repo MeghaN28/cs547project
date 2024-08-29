@@ -4,7 +4,7 @@ const kms = new AWS.KMS();
 
 export async function encrypt(plaintext) {
   const params = {
-    KeyId: '32989d68-73dc-4eee-8b69-22d8f92ff67d',
+    KeyId: '3a69fc4a-5133-4465-ad32-37b445f15a00',
     Plaintext: plaintext,
   };
   const data = await kms.encrypt(params).promise();

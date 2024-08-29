@@ -177,7 +177,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/my-serverless-project/dev/1724875443105-2024-08-28T20:04:03.105Z/my-serverless-project.zip"
+          "S3Key": "serverless/my-serverless-project/dev/1724969294643-2024-08-29T22:08:14.643Z/my-serverless-project.zip"
         },
         "Handler": "handlers/userHandler.getUser",
         "Runtime": "nodejs20.x",
@@ -202,7 +202,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/my-serverless-project/dev/1724875443105-2024-08-28T20:04:03.105Z/my-serverless-project.zip"
+          "S3Key": "serverless/my-serverless-project/dev/1724969294643-2024-08-29T22:08:14.643Z/my-serverless-project.zip"
         },
         "Handler": "handlers/userHandler.createUser",
         "Runtime": "nodejs20.x",
@@ -220,24 +220,24 @@
         "CreateUserLogGroup"
       ]
     },
-    "GetUserLambdaVersiongYoK8XkzKXRWgEi8UKhKPCH1j5qlIvoWXILAoE11k": {
+    "GetUserLambdaVersionW9kEMu984XO88YhfKZLZbxWEqDli7AzHUXxKCJZPo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUserLambdaFunction"
         },
-        "CodeSha256": "j2rZ01tQZY4i4nrBOlfzTaK7Ri7d3wZHLQv10VdS1dY="
+        "CodeSha256": "Vgr+vNSxAUmeA5WElJckyFcR26oxpXnAAR1OsHigIZg="
       }
     },
-    "CreateUserLambdaVersionsGQeXaEDjpIYFBUZBGhGrimb6ZwxdZKP3K32oXdsFwg": {
+    "CreateUserLambdaVersionZ54wyL9W5L5y2oS3hrkda22PgEShpgLIClbZO8cCM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateUserLambdaFunction"
         },
-        "CodeSha256": "j2rZ01tQZY4i4nrBOlfzTaK7Ri7d3wZHLQv10VdS1dY="
+        "CodeSha256": "Vgr+vNSxAUmeA5WElJckyFcR26oxpXnAAR1OsHigIZg="
       }
     },
     "ApiGatewayRestApi": {
@@ -307,7 +307,7 @@
               "StatusCode": "200",
               "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Requested-With'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
@@ -352,7 +352,7 @@
               "StatusCode": "200",
               "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
-                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Requested-With'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
@@ -383,7 +383,7 @@
         "ApiKeyRequired": false,
         "AuthorizationType": "COGNITO_USER_POOLS",
         "AuthorizerId": {
-          "Ref": "2UnderscoreOj7y6SH7iApiGatewayAuthorizer"
+          "Ref": "1Underscore4YebdRlsQApiGatewayAuthorizer"
         },
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -415,7 +415,7 @@
         "MethodResponses": []
       },
       "DependsOn": [
-        "2UnderscoreOj7y6SH7iApiGatewayAuthorizer"
+        "1Underscore4YebdRlsQApiGatewayAuthorizer"
       ]
     },
     "ApiGatewayMethodUsersPost": {
@@ -432,7 +432,7 @@
         "ApiKeyRequired": false,
         "AuthorizationType": "COGNITO_USER_POOLS",
         "AuthorizerId": {
-          "Ref": "2UnderscoreOj7y6SH7iApiGatewayAuthorizer"
+          "Ref": "1Underscore4YebdRlsQApiGatewayAuthorizer"
         },
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -464,25 +464,25 @@
         "MethodResponses": []
       },
       "DependsOn": [
-        "2UnderscoreOj7y6SH7iApiGatewayAuthorizer"
+        "1Underscore4YebdRlsQApiGatewayAuthorizer"
       ]
     },
-    "2UnderscoreOj7y6SH7iApiGatewayAuthorizer": {
+    "1Underscore4YebdRlsQApiGatewayAuthorizer": {
       "Type": "AWS::ApiGateway::Authorizer",
       "Properties": {
         "AuthorizerResultTtlInSeconds": 300,
         "IdentitySource": "method.request.header.Authorization",
-        "Name": "2_Oj7y6SH7i",
+        "Name": "1_4YebdRlsQ",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         },
         "Type": "COGNITO_USER_POOLS",
         "ProviderARNs": [
-          "arn:aws:cognito-idp:us-west-2:058264448474:userpool/us-west-2_Oj7y6SH7i"
+          "arn:aws:cognito-idp:ap-south-1:058264448474:userpool/ap-south-1_4YebdRlsQ"
         ]
       }
     },
-    "ApiGatewayDeployment1724875417875": {
+    "ApiGatewayDeployment1724969276733": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -613,7 +613,7 @@
     "GetUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetUserLambdaVersiongYoK8XkzKXRWgEi8UKhKPCH1j5qlIvoWXILAoE11k"
+        "Ref": "GetUserLambdaVersionW9kEMu984XO88YhfKZLZbxWEqDli7AzHUXxKCJZPo"
       },
       "Export": {
         "Name": "sls-my-serverless-project-dev-GetUserLambdaFunctionQualifiedArn"
@@ -622,7 +622,7 @@
     "CreateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateUserLambdaVersionsGQeXaEDjpIYFBUZBGhGrimb6ZwxdZKP3K32oXdsFwg"
+        "Ref": "CreateUserLambdaVersionZ54wyL9W5L5y2oS3hrkda22PgEShpgLIClbZO8cCM"
       },
       "Export": {
         "Name": "sls-my-serverless-project-dev-CreateUserLambdaFunctionQualifiedArn"
