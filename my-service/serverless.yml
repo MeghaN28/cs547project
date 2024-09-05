@@ -17,7 +17,7 @@ functions:
     handler: handlers/userHandler.getUser
     events:
       - http:
-          path: users/{email}
+          path: users/{username}
           method: get
           cors:
             origin: '*'
@@ -52,10 +52,10 @@ resources:
       Properties:
         TableName: UserTable
         AttributeDefinitions:
-          - AttributeName: email
+          - AttributeName: username  # Changed to match 'getUser' path
             AttributeType: S
         KeySchema:
-          - AttributeName: email
+          - AttributeName: username  # Changed to 'username' for consistency
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 5

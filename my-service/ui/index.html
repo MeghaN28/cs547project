@@ -4,6 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input[type="email"], input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
     <script>
         window.onload = function() {
             // Extract tokens from the URL hash
@@ -38,9 +96,9 @@
             let url = '';
 
             if (action === 'get') {
-                url = `https://exy3k510hb.execute-api.ap-south-1.amazonaws.com/dev/users/${email}`;
+                url = `https://xtqqanh0i7.execute-api.ap-south-1.amazonaws.com/dev/users/${username}`;
             } else if (action === 'post') {
-                url = 'https://exy3k510hb.execute-api.ap-south-1.amazonaws.com/dev/users';
+                url = 'https://xtqqanh0i7.execute-api.ap-south-1.amazonaws.com/dev/users';
             }
 
             fetch(url, {
@@ -53,14 +111,25 @@
             })
             .then(response => response.json())  // Parse JSON response
             .then(data => {
-                console.log('Response:', data);  // Log the response
+                if (action === 'get') {
+                    // Display only the username for GET requests
+                    document.getElementById('response').innerText = data.username || 'Username not found';
+                } else {
+                    // For POST requests, display the entire response
+                    document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);  // Handle errors
+                document.getElementById('response').innerText = 'Error: ' + error.message;
+                document.getElementById('response').classList.add('error');
             });
         }
     </script>
 </head>
 <body>
 
-<div id="user-form" style="display:none;">
+<div id="user-form" class="container" style="display:none;">
     <h2>User Form</h2>
     <form onsubmit="handleSubmit(event)">
         <label for="email">Email:</label>
@@ -72,6 +141,7 @@
         <button type="submit" data-action="post">Create User</button>
         <button type="submit" data-action="get">Get User</button>
     </form>
+    <pre id="response"></pre>
 </div>
 
 </body>
